@@ -30,8 +30,8 @@ var server = app.listen(port, () => {
 
 const WebSocket = require('ws')
  
-const wss = new WebSocket.Server({ port: 8080 })
-//const wss = new WebSocket.Server({ server })
+//const wss = new WebSocket.Server({ port: 8080 })
+const wss = new WebSocket.Server({ server })
 wss.on('connection', ws => {
   ws.on('message', message => {
     console.log(`Received message => ${message}`)
