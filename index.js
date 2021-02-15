@@ -17,7 +17,7 @@ app.get("/", (req,res) => {
 
 app.post("/report", (req,res) => {
   console.log(req.body)
-  ws.send('CSP report: ' + req.body);
+  //ws.send('CSP report: ' + req.body);
   return res.send('CSP violation report received');
 });
 
