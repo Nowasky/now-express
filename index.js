@@ -13,7 +13,8 @@ app.use(express.urlencoded({ extended: false }));
 
 app.get("/", (req,res) => {
   res.setHeader("Content-Security-Policy", "frame-src https://bit.ly; report-uri /report");
-  res.render("index");
+  res.sendFile('views/index.html', {root: __dirname })
+  //res.render("index");
 });
 
 app.post("/report", (req,res) => {
