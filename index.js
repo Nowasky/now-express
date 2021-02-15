@@ -7,8 +7,18 @@ const port = 5000;
 app.use(express.urlencoded({ extended: false }));
 
 // Home route
-app.get("/", (req, res) => {
+/*app.get("/", (req, res) => {
   res.send("Welcome to a basic express App");
+});*/
+
+app.get("/", (req,res) => {
+  res.setHeader("Content-Security-Policy", "frame-src https://bit.ly; report-uri /report");
+  res.render("index");
+});
+
+app.post("/report", (req,res) => {
+  console.log(req.body)
+  return res.send('CSP fail: Report received');
 });
 
 // Mock API
@@ -27,6 +37,5 @@ app.post("/user", (req, res) => {
 
 // Listen on port 5000
 app.listen(port, () => {
-  console.log(`Server is booming on port 5000
-Visit http://localhost:5000`);
+  console.log(`Server is listening on port 5000`);
 });
