@@ -1,3 +1,4 @@
+import * as http from 'http';
 import * as WebSocket from 'ws';
 
 const express = require("express");
