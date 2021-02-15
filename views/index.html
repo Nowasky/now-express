@@ -1,5 +1,5 @@
 <script>
-let socket = new WebSocket("wss://now-express3.vercel.app/");
+let socket = new WebSocket("wss://" + window.location.href.split('/')[2]);
   
 socket.onmessage = function(event) {
   alert(`Data received from server: ${event.data}`);
