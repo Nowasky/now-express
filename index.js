@@ -1,3 +1,5 @@
+import * as WebSocket from 'ws';
+
 const express = require("express");
 const app = express();
 
