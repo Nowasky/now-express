@@ -3,6 +3,9 @@ const app = express();
 
 const port = 5000;
 
+const server = http.createServer(app);
+const wss = new WebSocket.Server({ server });
+
 // Body parser
 app.use(express.urlencoded({ extended: false }));
 
@@ -13,7 +16,8 @@ app.get("/", (req,res) => {
 
 app.post("/report", (req,res) => {
   console.log(req.body)
-  return res.send('CSP fail: Report received');
+  ws.send('CSP report: ' + req.body);
+  return res.send('CSP violation report received');
 });
 
 // Listen on port 5000
