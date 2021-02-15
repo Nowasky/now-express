@@ -1,7 +1,7 @@
 import * as http from 'http';
 //import * as WebSocket from 'ws';
 
-const ws = require("ws")
+const webs = require("ws")
 const express = require("express");
 const app = express();
 
@@ -26,9 +26,9 @@ var server = app.listen(port, () => {
   console.log(`Server is listening on port 5000`);
 });
 
-const wss = new ws.Server({ server });
+const wss = new webs.Server({ server });
 
-wss.on('connection', (ws: WebSocket) => {
+wss.on('connection', (ws: webs) => {
 
     //connection is up, let's add a simple simple event
     ws.on('message', (message: string) => {
